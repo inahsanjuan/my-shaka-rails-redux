@@ -2,7 +2,10 @@
   "name": "my_shaka_redux",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "^4.0.2"
+    "@rails/webpacker": "^4.0.2",
+    "react-on-rails": "11.2.2",
+    "react-redux": "^6.0.1",
+    "redux": "^4.0.1"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.2.1"
