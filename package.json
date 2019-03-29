@@ -2,8 +2,11 @@
   "name": "my_shaka_redux",
   "private": true,
   "dependencies": {
+    "@babel/preset-react": "^7.0.0",
     "@rails/webpacker": "^4.0.2",
-    "react-on-rails": "11.2.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-on-rails": "^11.2.2",
     "react-redux": "^6.0.1",
     "redux": "^4.0.1"
   },
