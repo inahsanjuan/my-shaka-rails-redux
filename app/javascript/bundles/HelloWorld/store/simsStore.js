@@ -1,8 +1,25 @@
-import { createStore } from 'redux';
+import { createBrowserHistory } from 'history';
+import { applyMiddleware, compose, createStore } from 'redux';
+import { routerMiddleware } from 'connected-react-router';
+
 import simsReducer from '../reducers/simsReducer';
 
-const configureStore = (initialState) => (
-  createStore(simsReducer, initialState)
-);
+export const history = createBrowserHistory();
 
-export default configureStore;
+// const configureStore = (initialState) => (
+//   createStore(simsReducer, initialState)
+// );
+
+export default function configureStore(preloadedState) {
+  const store = createStore(
+    simsReducer(history),
+    preloadedState,
+    compose(
+      applyMiddleware(
+        routerMiddleware(history), 
+      )
+    )
+  );
+
+  return store;
+}
