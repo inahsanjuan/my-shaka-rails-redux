@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'hello_world', to: 'hello_world#index'
-  root "users#index"
+  root "sims#index"
 
-  resources :users, only: [:show]
+  resources :users, only: [:index, :show]
 end
