@@ -1,22 +1,29 @@
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router'
 
-import { HELLO_WORLD_NAME_UPDATE } from '../constants/helloWorldConstants';
+import { FETCH_TODOS, FETCH_TODOS_SUCCESS, FETCH_TODOS_FAILED } from '../constants';
 
-const name = (state = '', action) => {
+// const initialState = {
+//   todos: [],
+//   loading: true,
+//   errorMessage: ""
+// }
+
+const todos = (state = [], action) => {
   switch (action.type) {
-    case HELLO_WORLD_NAME_UPDATE:
-      return action.text;
+    case FETCH_TODOS:
+      return [ ...state, action.payload ]
+      //   return { ...state, loading: action.payload }
+      // case FETCH_TODOS_SUCCESS:
+      //   return { ...state, todos: action.payload, loading: action.loading}
+      // case FETCH_TODOS_FAILED:
+      //   return { ..state, errorMessage: action.payload, loading: action.loading}
     default:
       return state;
   }
 };
 
-// const simsReducer = combineReducers({ name });
-
-// export default simsReducer;
-
 export default (history) => combineReducers({
   router: connectRouter(history),
-  // name
-})
+  todos
+});
